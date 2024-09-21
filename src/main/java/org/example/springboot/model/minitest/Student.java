@@ -14,7 +14,7 @@ public class Student {
     @Column(name = "name")
     private String name;
     @Column(name = "phone")
-    private String phone;
+    private Long phone;
     @Column(name = "gmail")
     private String gmail;
     @Column(name = "img")
@@ -27,7 +27,7 @@ public class Student {
     public Student() {
     }
 
-    public Student(int id, String name, String phone, String gmail, String img, Province province) {
+    public Student(int id, String name, Long phone, String gmail, String img, Province province) {
         this.id = id;
         this.name = name;
         this.phone = phone;
@@ -52,11 +52,11 @@ public class Student {
         this.name = name;
     }
 
-    public String getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 

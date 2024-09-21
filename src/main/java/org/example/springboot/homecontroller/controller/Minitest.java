@@ -131,10 +131,13 @@ public class Minitest {
     @GetMapping("/search")
     public ResponseEntity<ResponseObject> searchStudents(
             @RequestParam(required = false) String name,
-            @RequestParam(required = false) String email,
-            @RequestParam(required = false) String phone) {
-        List<Student> students = studentService.findStudents(name, email, phone);
-        return ResponseEntity.status(HttpStatus.OK).body(new ResponseObject("ok", "Successfully updated", studentService.findStudents(name, email, phone)));
+            @RequestParam(required = false) String gmail,
+            @RequestParam(required = false) Long phone) {
+        List<Student> students = studentService.findStudents(name, gmail, phone);
+        if (students.isEmpty()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ResponseObject("error", "Not Found", "not found"));
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(new ResponseObject("ok", "Successfully updated", studentService.findStudents(name, gmail, phone)));
 
     }
 

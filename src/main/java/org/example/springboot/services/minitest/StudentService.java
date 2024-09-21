@@ -15,10 +15,10 @@ public class StudentService {
         this.repository = repository;
     }
 
-    public List<Student> findStudents(String name, String phone, String email) {
+    public List<Student> findStudents(String name, String gmail, Long phone) {
         Specification<Student> spec = Specification.where(StudentSpecifications.hasName(name))
                 .and(StudentSpecifications.hasPhone(phone))
-                .and(StudentSpecifications.hasGmail(email));
+                .and(StudentSpecifications.hasGmail(gmail));
 
         return repository.findAll(spec);
     }

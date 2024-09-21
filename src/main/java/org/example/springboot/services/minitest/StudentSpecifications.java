@@ -13,9 +13,9 @@ public class StudentSpecifications {
         };
     }
 
-    public static Specification<Student> hasPhone(String phone) {
+    public static Specification<Student> hasPhone(Long phone) {
         return (root, query, criteriaBuilder) -> {
-            if (phone == null || phone.isEmpty()) {
+            if (phone == null) {
                 return criteriaBuilder.conjunction();
             }
             return criteriaBuilder.equal(root.get("phone"), phone);
