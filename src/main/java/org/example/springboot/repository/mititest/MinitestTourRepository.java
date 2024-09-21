@@ -1,12 +1,13 @@
 package org.example.springboot.repository.mititest;
 
-import org.example.springboot.model.minitest.Tour;
+import org.example.springboot.model.minitest.Student;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 
-public interface MinitestTourRepository extends JpaRepository<Tour, Integer> {
-//    @Modifying
+public interface MinitestTourRepository extends JpaRepository<Student, Integer>, JpaSpecificationExecutor<Student> {
+    //    @Modifying
 //    @Transactional
 //    @Query("UPDATE tour b SET b.code = :code, b.destination = :destination, b.start = :start, b.img = :img WHERE b.id = :id")
 //    void updateTour(@Param("code") String code,
@@ -14,6 +15,6 @@ public interface MinitestTourRepository extends JpaRepository<Tour, Integer> {
 //                    @Param("start") Date start,
 //                    @Param("img") String img,
 //                    @Param("id") int id);
-    Page<Tour> findByCodeContainingIgnoreCase(String query, Pageable pageable);
+    Page<Student> findByNameContainingIgnoreCase(String query, Pageable pageable);
 
 }

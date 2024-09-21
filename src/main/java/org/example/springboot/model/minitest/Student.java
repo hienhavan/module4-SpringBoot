@@ -2,23 +2,21 @@ package org.example.springboot.model.minitest;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
-
 @Entity
 @Table(name = "tour")
-public class Tour {
+public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
 
-    @Column(name = "code")
-    private String code;
-    @Column(name = "destination")
-    private String destination;
-    @Column(name = "start")
-    private Date start;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "phone")
+    private String phone;
+    @Column(name = "gmail")
+    private String gmail;
     @Column(name = "img")
     private String img;
     @ManyToOne
@@ -26,14 +24,14 @@ public class Tour {
     private Province province;
 
     // Constructors
-    public Tour() {
+    public Student() {
     }
 
-    public Tour(int id, String code, String destination, Date start, String img, Province province) {
+    public Student(int id, String name, String phone, String gmail, String img, Province province) {
         this.id = id;
-        this.code = code;
-        this.destination = destination;
-        this.start = start;
+        this.name = name;
+        this.phone = phone;
+        this.gmail = gmail;
         this.img = img;
         this.province = province;
     }
@@ -46,28 +44,28 @@ public class Tour {
         this.id = id;
     }
 
-    public String getCode() {
-        return code;
+    public String getName() {
+        return name;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDestination() {
-        return destination;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setDestination(String destination) {
-        this.destination = destination;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public Date getStart() {
-        return start;
+    public String getGmail() {
+        return gmail;
     }
 
-    public void setStart(Date start) {
-        this.start = start;
+    public void setGmail(String gmail) {
+        this.gmail = gmail;
     }
 
     public String getImg() {
